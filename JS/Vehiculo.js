@@ -10,6 +10,10 @@ class Vehiculo {
         const avanceBase = Math.random() * (this.avanceMax - this.avanceMin) + this.avanceMin;
         return avanceBase;
     }
+    avanzar() {
+        throw new Error('Método "avanzar" no implementado');
+    }
+
 }
 
 export default Vehiculo;

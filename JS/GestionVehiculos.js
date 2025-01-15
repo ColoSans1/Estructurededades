@@ -31,12 +31,10 @@ class GestionVehiculos {
         return nuevoVehiculo;
     }
 
-    // Buscar un vehículo por modelo
     buscarVehiculo(modelo) {
         return this.vehiculos.find((v) => v.modelo === modelo);
     }
 
-    // Listar todos los vehículos
     listarVehiculos() {
         if (this.vehiculos.length === 0) {
             console.log("No hay vehículos registrados.");

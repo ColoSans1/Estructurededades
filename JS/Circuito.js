@@ -1,10 +1,14 @@
 class Circuito {
-    constructor(nombre, tiempo, longitud) {
+    constructor(nombre, terreno, longitud) {
         this.nombre = nombre;
-        this.tiempo = tiempo; // "lluvioso", "húmedo", "seco"
-        this.longitud = longitud; // longitud del circuito en km
-        this.participantes = [];
-        this.resultados = [];
+        this.terreno = terreno; 
+        this.longitud = longitud; 
+    }
+
+    mostrarInfo() {
+        console.log(`Circuito: ${this.nombre}`);
+        console.log(`Terreno: ${this.terreno}`);
+        console.log(`Longitud: ${this.longitud} km`);
     }
 
     asignarParticipante(participante) {

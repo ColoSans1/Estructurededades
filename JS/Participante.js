@@ -1,16 +1,15 @@
 class Participante {
-    constructor(nombre, vehiculo) {
-        this.nombre = nombre;
-        this.vehiculo = vehiculo;
+    constructor(nombre) {
+        this.nombre = nombre; 
         this.estadisticas = {
             primero: 0,
             segundo: 0,
             tercero: 0,
-            otros: 0,
+            otros: 0
         };
     }
 
-    actualizarEstadisticas(posicion) {
+    actualizarPosicion(posicion) {
         switch (posicion) {
             case 1:
                 this.estadisticas.primero++;
@@ -27,8 +26,12 @@ class Participante {
         }
     }
 
-    toString() {
-        return `Nombre: ${this.nombre}, Vehículo: ${this.vehiculo.modelo}, Estadísticas: ${JSON.stringify(this.estadisticas)}`;
+    mostrarEstadisticas() {
+        console.log(`Estadísticas de ${this.nombre}:`);
+        console.log(`1º lugar: ${this.estadisticas.primero}`);
+        console.log(`2º lugar: ${this.estadisticas.segundo}`);
+        console.log(`3º lugar: ${this.estadisticas.tercero}`);
+        console.log(`Otros: ${this.estadisticas.otros}`);
     }
 }
 
