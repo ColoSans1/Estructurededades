@@ -1,0 +1,11 @@
+/* Personaliza tus estilos aquí si es necesario */
+body {
+    font-family: Arial, sans-serif;
+}
+.card-title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+textarea {
+    margin-top: 20px;
+}

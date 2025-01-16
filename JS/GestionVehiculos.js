@@ -6,7 +6,6 @@ class GestionVehiculos {
         this.vehiculos = [];
     }
 
-    // Crear un nuevo vehículo
     crearVehiculo(tipo, modelo, traccion, avanceMin, avanceMax) {
         if (this.buscarVehiculo(modelo)) {
             console.log(`El vehículo con el modelo "${modelo}" ya existe.`);

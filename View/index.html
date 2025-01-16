@@ -3,13 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Carreras</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Archivo de estilos -->
+    <link rel="stylesheet" href="styles.css">
 </head>
+<body class="bg-light">
+    <div class="container my-5">
+        <!-- Gestión de Participantes -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestión de Participantes</h5>
+                        <div class="mb-3">
+                            <label for="participant-name" class="form-label">Nombre:</label>
+                            <input class="form-control" id="participant-name" list="participant-list">
+                            <datalist id="participant-list"></datalist>
+                        </div>
+                        <div class="mb-3">
+                            <label for="participant-vehicle" class="form-label">Vehículo:</label>
+                            <select id="participant-vehicle" class="form-select">
+                                <option selected>Selecciona un vehículo</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary w-100">Guardar Participante</button>
+                        <button class="btn btn-secondary mt-2 w-100">Cargar Estadísticas</button>
+                    </div>
+                </div>
+            </div>
 
-<body>
+            <!-- Nuevo Vehículo -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nuevo Vehículo</h5>
+                        <div class="mb-3">
+                            <label for="vehicle-model" class="form-label">Modelo:</label>
+                            <input class="form-control" id="vehicle-model" list="model-list">
+                            <datalist id="model-list"></datalist>
+                        </div>
+                        <div class="mb-3">
+                            <label for="min-speed" class="form-label">Min Vel:</label>
+                            <input type="number" id="min-speed" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="max-speed" class="form-label">Max Vel:</label>
+                            <input type="number" id="max-speed" class="form-control">
+                        </div>
+                        <button class="btn btn-primary w-100">Nuevo Vehículo</button>
+                        <button class="btn btn-secondary mt-2 w-100">Cargar Estadísticas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    
+        <!-- Nuevo Circuito -->
+        <div class="row mb-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Nuevo Circuito</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="circuit-name" class="form-label">Nombre:</label>
+                                <input type="text" id="circuit-name" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="circuit-length" class="form-label">Longitud:</label>
+                                <input type="text" id="circuit-length" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="circuit-time" class="form-label">Tiempo:</label>
+                                <input type="text" id="circuit-time" class="form-control">
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-3 w-100">Nueva Carrera</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Asignar y Quitar Participantes -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Asigna un participante al circuito</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="circuit-select" class="form-label">Circuito:</label>
+                                <select id="circuit-select" class="form-select">
+                                    <option selected>Selecciona un circuito</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="participant-select" class="form-label">Participantes:</label>
+                                <select id="participant-select" class="form-select">
+                                    <option selected>Selecciona un participante</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-success mt-3 w-100">Asignar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Quita un participante del circuito</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="circuit-remove" class="form-label">Circuito:</label>
+                                <select id="circuit-remove" class="form-select">
+                                    <option selected>Selecciona un circuito</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="participant-remove" class="form-label">Participantes:</label>
+                                <select id="participant-remove" class="form-select">
+                                    <option selected>Selecciona un participante</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger mt-3 w-100">Quitar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carga Circuito -->
+        <div class="row mb-4">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Carga Circuito</h5>
+                        <div class="alert alert-info text-center" role="alert">
+                            Circuito Cargado: <strong>La gran carrera</strong>, Lluvioso, 150px
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="border p-3">Super Mario</div>
+                            <button class="btn btn-primary">START!</button>
+                            <div class="border p-3">FINISH!!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comentarios -->
+        <div class="row">
+            <div class="col">
+                <textarea class="form-control" rows="3" placeholder="Comentarios"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
