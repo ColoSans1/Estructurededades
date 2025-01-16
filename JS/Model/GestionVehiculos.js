@@ -1,5 +1,5 @@
 import Motocicleta from './Motocicleta.js';
-import Coche from './Coche.js';
+import Coche from '../Script/Coche.js';
 
 class GestionVehiculos {
     constructor() {

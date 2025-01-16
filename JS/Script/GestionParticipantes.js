@@ -1,4 +1,4 @@
-import Participante from './Participante.js';
+import Participante from '../Model/Participante.js';
 
 class GestionParticipantes {
     constructor() {

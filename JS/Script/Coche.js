@@ -1,4 +1,4 @@
-import Vehiculo from './Vehiculo.js';
+import Vehiculo from '../Model/Vehiculo.js';
 
 class Coche extends Vehiculo {
     constructor(modelo, traccion, avanceMinimo, avanceMaximo) {
