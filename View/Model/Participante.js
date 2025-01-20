@@ -1,6 +1,6 @@
 // Participante.js
 
-class Participante {
+export class Participante {
     constructor(nombre, vehiculo) {
         this.nombre = nombre; 
         this.vehiculo = vehiculo; 
@@ -24,5 +24,3 @@ class Participante {
         return this.estadisticas;
     }
 }
-
-module.exports = Participante;

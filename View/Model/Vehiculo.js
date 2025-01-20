@@ -1,4 +1,4 @@
-class Vehiculo {
+export class Vehiculo {
     constructor(modelo, traccion, velocidadMin, velocidadMax) {
         this.modelo = modelo;
         this.traccion = traccion;
@@ -12,7 +12,7 @@ class Vehiculo {
 }
 
 class Motocicleta extends Vehiculo {
-    calcularAvance(terreno) {
+    calcularAvance() {
         let avance = super.calcularAvance();
         if (this.traccion === 'dura') avance += 5;
         else if (this.traccion === 'mediana') avance += 2;
@@ -21,9 +21,8 @@ class Motocicleta extends Vehiculo {
 }
 
 class Coche extends Vehiculo {
-    calcularAvance(terreno) {
-        let avance = super.calcularAvance();
-        return avance;
+    calcularAvance() {
+        return super.calcularAvance();
     }
 }
 

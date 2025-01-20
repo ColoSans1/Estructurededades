@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Módulos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <h2>Prueba de Módulos JS</h2>
+
+        <div class="mb-3">
+            <label for="vehicle-model" class="form-label">Modelo de Vehículo:</label>
+            <input class="form-control" id="vehicle-model">
+        </div>
+
+        <div class="mb-3">
+            <label for="min-speed" class="form-label">Velocidad Mínima:</label>
+            <input type="number" id="min-speed" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label for="max-speed" class="form-label">Velocidad Máxima:</label>
+            <input type="number" id="max-speed" class="form-control">
+        </div>
+
+        <button class="btn btn-primary" id="add-vehicle">Agregar Vehículo</button>
+
+        <h3 class="mt-4">Vehículos Agregados</h3>
+        <ul id="vehicle-list"></ul>
+    </div>
+
+    <script type="module">
+        // Vehiculo.js
+        class Vehiculo {
+            constructor(modelo, velocidadMin, velocidadMax) {
+                this.modelo = modelo;
+                this.velocidadMin = velocidadMin;
+                this.velocidadMax = velocidadMax;
+            }
+        }
+
+        // Agregar vehículo al DOM
+        document.getElementById('add-vehicle').addEventListener('click', () => {
+            const modelo = document.getElementById('vehicle-model').value;
+            const velocidadMin = document.getElementById('min-speed').value;
+            const velocidadMax = document.getElementById('max-speed').value;
+
+            if (modelo && velocidadMin && velocidadMax) {
+                const vehiculo = new Vehiculo(modelo, velocidadMin, velocidadMax);
+                const listItem = document.createElement('li');
+                listItem.textContent = `Modelo: ${vehiculo.modelo}, Velocidad: ${vehiculo.velocidadMin} - ${vehiculo.velocidadMax}`;
+                document.getElementById('vehicle-list').appendChild(listItem);
+
+                // Limpiar los campos
+                document.getElementById('vehicle-model').value = '';
+                document.getElementById('min-speed').value = '';
+                document.getElementById('max-speed').value = '';
+            } else {
+                alert('Por favor, completa todos los campos.');
+            }
+        });
+    </script>
+</body>
+</html>

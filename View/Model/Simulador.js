@@ -4,7 +4,7 @@ const Circuito = require('./Model/Circuito.js');
 const Participante = require('./Partiipante');
 const { Vehiculo, Motocicleta, Coche } = require('../Vehiculo');
 
-class Simulador {
+export class Simulador {
     constructor() {
         this.circuitos = []; // Lista de circuitos disponibles
     }
@@ -34,10 +34,12 @@ class Simulador {
                 if (pos.participante.tiempoEspera > 0) {
                     pos.participante.tiempoEspera -= 1;
                 } else {
-                    const avance = pos.participante.vehiculo.avanzar(circuito.tiempo);
+                    const avance = pos.participante.vehiculo.calcularAvance(circuito.tiempo);
                     pos.distancia += avance;
                 }
             });
+
+            // Ordena los participantes por su distancia (mayor a menor)
             posiciones.sort((a, b) => b.distancia - a.distancia);
         }
 
