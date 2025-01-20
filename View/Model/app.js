@@ -1,6 +1,7 @@
-import { Vehiculo } from './Vehiculo';  
-import { Participante } from './Participante';  
-import { Circuito } from './Circuito';  
+import Vehiculo, { Motocicleta, Coche } from './Vehiculo.js';
+import Participante from './Participante.js';
+import Circuito from './Circuito.js';
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Documento cargado"); // Para verificar si el DOM se ha cargado correctamente.

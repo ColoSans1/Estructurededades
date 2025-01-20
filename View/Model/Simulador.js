@@ -1,8 +1,7 @@
-// Simulador.js
-
-const Circuito = require('./Model/Circuito.js');
-const Participante = require('./Partiipante');
-const { Vehiculo, Motocicleta, Coche } = require('../Vehiculo');
+// Importa la clase Vehiculo como 'default', y las otras clases por nombre
+import Vehiculo, { Motocicleta, Coche } from '../Model/Vehiculo.js';
+import Participante from '../Model/Participante.js';
+import Circuito from '../Model/Circuito.js'; // Asegúrate que este archivo esté correctamente exportado
 
 export class Simulador {
     constructor() {
@@ -52,5 +51,3 @@ export class Simulador {
         return posiciones.map(p => p.participante);
     }
 }
-
-module.exports = Simulador;

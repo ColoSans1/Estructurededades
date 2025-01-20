@@ -1,6 +1,4 @@
-// Circuito.js
-
-export class Circuito {
+class Circuito {
     constructor(nombre, tiempo, longitud) {
         this.nombre = nombre; 
         this.tiempo = tiempo; 
@@ -20,3 +18,5 @@ export class Circuito {
         return this.participantes;
     }
 }
+
+export default Circuito;

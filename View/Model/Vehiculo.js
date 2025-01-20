@@ -1,4 +1,4 @@
-export class Vehiculo {
+export default class Vehiculo {
     constructor(modelo, traccion, velocidadMin, velocidadMax) {
         this.modelo = modelo;
         this.traccion = traccion;
@@ -26,4 +26,4 @@ class Coche extends Vehiculo {
     }
 }
 
-export { Vehiculo, Motocicleta, Coche };
+export { Motocicleta, Coche };

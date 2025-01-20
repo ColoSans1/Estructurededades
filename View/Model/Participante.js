@@ -1,6 +1,6 @@
 // Participante.js
 
-export class Participante {
+export default class Participante {
     constructor(nombre, vehiculo) {
         this.nombre = nombre; 
         this.vehiculo = vehiculo; 
