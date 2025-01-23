@@ -2,9 +2,10 @@ import Vehiculo, { Motocicleta, Coche } from './Vehiculo.js';
 import Participante from './Participante.js';
 import Circuito from './Circuito.js';
 
+document.addEventListener('DOMContentLoaded', function () {
+    console.log("Documento cargado");
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("Documento cargado"); // Para verificar si el DOM se ha cargado correctamente.
+    const circuitos = []; 
 
     function agregarVehiculoAlSelect(vehiculo) {
         const selectVehiculo = document.getElementById('participant-vehicle');
@@ -13,6 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
         option.textContent = vehiculo.modelo;  
         selectVehiculo.appendChild(option);  
         console.log("Vehículo agregado al select", vehiculo.modelo);
+    }
+
+    function agregarCircuitoAlSelect(circuito) {
+        const selectCircuito = document.getElementById('circuit-select');
+        const option = document.createElement('option');
+        option.value = circuito.nombre;  
+        option.textContent = `${circuito.nombre} (${circuito.tiempo})`;
+        selectCircuito.appendChild(option);
+        console.log("Circuito agregado al select:", circuito.nombre);
     }
 
     // Agregar evento para guardar el vehículo
@@ -59,15 +69,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.btn-primary.mt-3').addEventListener('click', function () {
         console.log("Botón 'Nueva Carrera' clickeado");
 
-        const nombre = document.getElementById('circuit-name').value;
-        const longitud = document.getElementById('circuit-length').value;
-        const tiempo = document.getElementById('circuit-time').value;
+        const nombre = document.getElementById('circuit-name').value.trim();
+        const longitud = parseFloat(document.getElementById('circuit-length').value.trim());
+        const tiempo = document.getElementById('circuit-time').value.trim();
 
-        if (nombre && longitud && tiempo) {
-            const circuito = new Circuito(nombre, tiempo, longitud);
-            console.log('Circuito creado correctamente:', circuito);
+        if (nombre && !isNaN(longitud) && longitud > 0 && ["lluvioso", "húmedo", "seco"].includes(tiempo)) {
+            const nuevoCircuito = new Circuito(nombre, tiempo, longitud);
+            circuitos.push(nuevoCircuito); // Agregar el circuito a la lista
+            agregarCircuitoAlSelect(nuevoCircuito);
+
+            // Limpiar campos después de crear el circuito
+            document.getElementById('circuit-name').value = '';
+            document.getElementById('circuit-length').value = '';
+            document.getElementById('circuit-time').value = '';
+
+            console.log('Circuito creado correctamente:', nuevoCircuito);
         } else {
-            alert("Por favor, complete todos los campos del circuito.");
+            alert("Por favor, complete todos los campos correctamente.");
         }
     });
+
 });
