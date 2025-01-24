@@ -65,24 +65,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Agregar evento para crear un nuevo circuito
     document.querySelector('.btn-primary.mt-3').addEventListener('click', function () {
         console.log("Botón 'Nueva Carrera' clickeado");
-
+    
         const nombre = document.getElementById('circuit-name').value.trim();
         const longitud = parseFloat(document.getElementById('circuit-length').value.trim());
         const tiempo = document.getElementById('circuit-time').value.trim();
-
+    
+        // Depurar valores
+        console.log("Nombre del circuito:", nombre);
+        console.log("Longitud del circuito:", longitud);
+        console.log("Tiempo del circuito:", tiempo);
+    
+        // Validar los campos
+        if (!nombre) {
+            console.log("Nombre vacío");
+        }
+        if (isNaN(longitud) || longitud <= 0) {
+            console.log("Longitud inválida");
+        }
+        if (!["lluvioso", "húmedo", "seco"].includes(tiempo)) {
+            console.log("Tiempo inválido");
+        }
+    
         if (nombre && !isNaN(longitud) && longitud > 0 && ["lluvioso", "húmedo", "seco"].includes(tiempo)) {
             const nuevoCircuito = new Circuito(nombre, tiempo, longitud);
             circuitos.push(nuevoCircuito); // Agregar el circuito a la lista
             agregarCircuitoAlSelect(nuevoCircuito);
-
+    
             // Limpiar campos después de crear el circuito
             document.getElementById('circuit-name').value = '';
             document.getElementById('circuit-length').value = '';
             document.getElementById('circuit-time').value = '';
-
+    
             console.log('Circuito creado correctamente:', nuevoCircuito);
         } else {
             alert("Por favor, complete todos los campos correctamente.");
