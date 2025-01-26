@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Carrera</title>
+</head>
+<body>
+    <select id="circuit-select">
+        <option>Selecciona un circuito</option>
+        <option value="Circuito 1">Circuito 1</option>
+    </select>
+
+    <button id="start-race" class="btn btn-primary">START!</button>
+
+    <table id="race-results" class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Participante</th>
+                <th>Tiempo (minutos)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Resultados -->
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById('start-race').addEventListener('click', function () {
+            const resultados = [
+                { nombre: "Participante 1", tiempo: 5.5 },
+                { nombre: "Participante 2", tiempo: 6.2 },
+            ];
+
+            const tbody = document.querySelector('#race-results tbody');
+            tbody.innerHTML = ''; 
+
+            resultados.forEach((resultado, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${resultado.nombre}</td>
+                    <td>${resultado.tiempo.toFixed(2)}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

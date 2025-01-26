@@ -250,24 +250,48 @@
         </div>
     </div>
 
-    <!-- Carga Circuito -->
-    <div class="row mb-4">
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Carga Circuito</h5>
-                    <div class="alert alert-info text-center" role="alert">
-                        Circuito Cargado: <strong>La gran carrera</strong>, Lluvioso, 150px
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <div class="border p-3">Super Mario</div>
-                        <button class="btn btn-primary">START!</button>
-                        <div class="border p-3">FINISH!!</div>
-                    </div>
+<!-- Carga Circuito -->
+<div class="row mb-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Carga Circuito</h5>
+                <div class="alert alert-info text-center" role="alert">
+                    Circuito Cargado: <strong>La gran carrera</strong>, Lluvioso, 150px
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div class="border p-3">Super Mario</div>
+                    <button id="start-race" class="btn btn-primary">START!</button>
+                    <div class="border p-3">FINISH!!</div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Resultados de la Carrera -->
+<div class="row mb-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Resultados de la Carrera</h5>
+                <table class="table table-striped" id="race-results">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Participante</th>
+                            <th>Tiempo (min)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los resultados de la carrera se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- Comentarios -->
     <div class="row">
